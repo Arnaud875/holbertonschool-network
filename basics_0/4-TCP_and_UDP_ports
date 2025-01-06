@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Display a header for better readability
 echo "Active Internet connections (only servers)"
