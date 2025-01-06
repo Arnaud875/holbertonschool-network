@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # The script will display the active TCP and UDP ports on the system
-netstat -tulp | awk 'NR==1 || /LISTEN/'
-netstat -lxp | awk 'NR==1 || /LISTEN/'
+netstat -tulp
+netstat -lxp
