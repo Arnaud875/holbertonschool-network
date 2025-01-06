@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# The script will display the active TCP and UDP ports on the system
 echo "Active Internet connections (only servers)"
 sudo netstat -tulnp | awk 'NR==1 || /LISTEN/'
 
