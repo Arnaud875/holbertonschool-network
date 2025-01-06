@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script shows the IPs of the attached devices
+ifconfig | grep "inet " | awk '{print $2}'
