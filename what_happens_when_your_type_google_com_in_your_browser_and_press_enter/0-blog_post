@@ -1,0 +1,102 @@
+What Happens When You Type https://www.google.com in Your Browser and Press Enter?
+
+Have you ever stopped to think about the complexity hidden behind the simple act of pressing "Enter" after typing a URL in your browser? Behind the scenes, an intricate web of technologies works seamlessly together to bring you the page you requested. In this blog post, we’ll walk through the journey of a URL like https://www.google.com, covering key topics like DNS, TCP/IP, firewalls, HTTPS/SSL, load balancing, web servers, application servers, and databases.
+
+1. DNS Request
+
+When you type https://www.google.com, the first step is resolving the human-readable URL into an IP address. This is where the Domain Name System (DNS) comes into play.
+
+Your browser checks its cache to see if it has recently resolved the domain. If not, it sends a query to a DNS resolver (often provided by your ISP or a third-party service like Google DNS or Cloudflare).
+
+The DNS resolver queries other DNS servers in a hierarchical fashion, starting with the root name servers, then the top-level domain (TLD) servers (e.g., for .com), and finally the authoritative server for google.com.
+
+Once the IP address is found, it’s returned to your browser, enabling it to connect to the destination server.
+
+2. TCP/IP
+
+With the IP address resolved, the browser initiates a connection to the server using the Transmission Control Protocol (TCP) over the Internet Protocol (IP).
+
+A TCP connection begins with the three-way handshake:
+
+The browser (client) sends a SYN (synchronize) packet to the server.
+
+The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+
+The client completes the handshake by sending an ACK (acknowledge) packet.
+
+This handshake establishes a reliable communication channel.
+
+Data is transmitted in packets, each containing the IP address of the source and destination, ensuring it reaches the correct endpoint.
+
+3. Firewall
+
+During the TCP/IP handshake and subsequent data transmission, firewalls may inspect and filter traffic.
+
+Firewalls protect both client and server networks by blocking malicious traffic based on preconfigured rules.
+
+On your end, a local or network firewall ensures your browser only communicates with trustworthy servers.
+
+On Google’s end, advanced firewalls and intrusion prevention systems safeguard their infrastructure from attacks like DDoS (Distributed Denial-of-Service).
+
+4. HTTPS/SSL
+
+Since you’re accessing https://www.google.com, the connection is secured using HTTPS (HTTP over SSL/TLS).
+
+The browser and server perform an SSL/TLS handshake:
+
+The browser requests the server’s SSL certificate to verify its identity.
+
+The server provides the certificate, which is validated against trusted Certificate Authorities (CAs).
+
+A session key is negotiated using asymmetric encryption (e.g., RSA or Diffie-Hellman).
+
+Once established, the connection switches to symmetric encryption for efficiency.
+
+HTTPS ensures data integrity, confidentiality, and authenticity, protecting your communication from eavesdropping or tampering.
+
+5. Load Balancer
+
+Once the secure connection is established, your request reaches Google’s infrastructure, where a load balancer plays a critical role.
+
+A load balancer distributes incoming traffic across multiple servers to ensure reliability and scalability.
+
+It uses algorithms like round-robin, least connections, or IP hash to direct your request to the optimal server.
+
+Load balancers also monitor server health and reroute traffic if a server becomes unavailable.
+
+6. Web Server
+
+The load balancer forwards your request to one of Google’s web servers.
+
+The web server processes HTTP requests and serves static content like HTML, CSS, and JavaScript files.
+
+Popular web servers include Apache, Nginx, and Google’s proprietary server.
+
+For dynamic content, the web server communicates with backend application servers.
+
+7. Application Server
+
+For complex operations, the web server forwards your request to an application server.
+
+Application servers handle business logic, such as querying search results for your input or personalizing the content based on your account.
+
+These servers run application code written in languages like Python, Java, or Go.
+
+Frameworks and APIs facilitate communication between the web server, application logic, and underlying databases.
+
+8. Database
+
+Finally, application servers interact with databases to fetch or store data.
+
+For https://www.google.com, the database might store indexed web pages, user preferences, or usage analytics.
+
+Databases are optimized for scalability and performance. Google uses a mix of SQL (e.g., MySQL) and NoSQL (e.g., Bigtable) databases.
+
+Advanced caching layers (e.g., Redis, Memcached) are often employed to minimize direct database queries, speeding up responses.
+
+Wrapping It All Up
+
+After this intricate process, the requested web page is assembled and sent back to your browser. The browser renders the content using the DOM (Document Object Model), CSS for styling, and JavaScript for interactivity. All of this happens in mere milliseconds, delivering a seamless user experience.
+
+The next time you press Enter after typing a URL, take a moment to appreciate the remarkable orchestration of technology that makes it all possible. Understanding this workflow is not only fascinating but also essential for anyone pursuing a career in software engineering.
+
